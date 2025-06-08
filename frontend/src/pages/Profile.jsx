@@ -19,7 +19,7 @@ const Profile = ({ user, setUser }) => {
     e.preventDefault();
     
     try {
-      const response = await fetch('https://propal-ai-assignment.onrender.com/api/profile', {
+      const response = await fetch('http://localhost:5000/api/profile', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -1,0 +1,1 @@
+{"providers":[{"name":"Provider 1","id":"provider1","models":[{"name":"Model A","id":"modelA","languages":["English","Spanish"]},{"name":"Model B","id":"modelB","languages":["English","French"]}]},{"name":"Provider 2","id":"provider2","models":[{"name":"Model X","id":"modelX","languages":["German","Italian"]}]}]}

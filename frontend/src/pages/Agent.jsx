@@ -27,7 +27,7 @@ const Agent = () => {
   useEffect(() => {
     const fetchSTTConfig = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/stt');
+        const response = await fetch('https://propal-ai-assignment.onrender.com/api/stt');
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || 'Failed to load config');
         setSttConfig({ providers: data.stt });

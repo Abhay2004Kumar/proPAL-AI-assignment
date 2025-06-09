@@ -7,10 +7,12 @@ const Dashboard = ({ user, setIsAuthenticated }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('user');
     setIsAuthenticated(false);
     navigate('/login');
   };
-
+  
   return (
     <div className="min-h-screen bg-gray-100 flex">
       {/* Sidebar */}

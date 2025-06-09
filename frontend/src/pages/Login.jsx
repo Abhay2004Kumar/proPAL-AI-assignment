@@ -17,27 +17,33 @@ const Login = ({ setIsAuthenticated, setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+  
     try {
       const response = await fetch('https://propal-ai-assignment.onrender.com/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
-      
+  
       const data = await response.json();
-      
+  
       if (!response.ok) {
         throw new Error(data.error || 'Login failed');
       }
-      
+  
+      // ✅ Save token in localStorage
+      localStorage.setItem('accessToken', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+  
+      // ✅ Set app state
       setIsAuthenticated(true);
       setUser(data.user);
+  
       setToast({
         message: 'Login successful! Redirecting...',
         type: 'success'
       });
-      
+  
       setTimeout(() => navigate('/dashboard'), 1000);
     } catch (err) {
       setToast({
@@ -46,7 +52,7 @@ const Login = ({ setIsAuthenticated, setUser }) => {
       });
     }
   };
-
+  
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
       {toast && <Toast {...toast} onClose={() => setToast(null)} />}

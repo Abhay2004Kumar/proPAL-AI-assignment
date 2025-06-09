@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: ['https://pro-pal-ai-assignment.vercel.app'], // or the deployed frontend URL
+    origin: ['https://pro-pal-ai-assignment.vercel.app', 'http://localhost:5173'], 
     credentials: true,
   }));
 app.use(bodyParser.json());

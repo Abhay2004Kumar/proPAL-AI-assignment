@@ -17,6 +17,6 @@ exports.getSTT = (req, res) => {
           ]
         }
       ]
-    }; // Removed the extra ']' here
+    };
     res.json(stt);
 };
